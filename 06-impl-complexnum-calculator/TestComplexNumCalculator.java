@@ -16,5 +16,18 @@ class TestComplexNumCalculator {
        *
        * 3) Fare altre prove con operazioni a piacere
        */
+
+      ComplexNum operandoA = new ComplexNum();
+      ComplexNum operandoB = new ComplexNum();
+      ComplexNum ress = new ComplexNum();
+      ComplexNumCalculator calculator = new ComplexNumCalculator();
+
+      operandoA.build(1,2);
+      operandoB.build(2,3);
+      ress = calculator.add(operandoA, operandoB);
+      System.out.println(ress.toStringRep());
+
+
+
   }
 }
