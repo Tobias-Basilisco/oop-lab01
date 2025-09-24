@@ -18,10 +18,12 @@ class Calculator{
     }
 
     double mul(double a, double b){
+        this.nOpDone ++;
         return this.lastRes = a * b;
     }
 
     double div(double a, double b){
+        this.nOpDone ++;
         return this.lastRes = a / b;
     }
 }
