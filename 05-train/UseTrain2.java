@@ -1,4 +1,4 @@
-class UseTrain {
+class UseTrain2 {
     public static void main(String[] args) {
         /*
          * Premesse per un corretto testing della classe. Per ragioni di
@@ -30,24 +30,26 @@ class UseTrain {
         testTrain1.build(100, 201);
 
         /*2) e 3)*/
-        testTrain1.reserveFirstClassSeats(30);
-        System.out.println("Percentuale totale dei posti occupati: " + testTrain1.getTotOccupancyRatio());
-        System.out.println("Percentuale dei posti occupati della prima classe: " + testTrain1.getFirstClassOccupancyRatio());
-
-        testTrain1.reserveSecondClassSeats(20);
-        System.out.println("Percentuale totale dei posti occupati: " + testTrain1.getTotOccupancyRatio());
-        System.out.println("Percentuale dei posti occupati della seconda classe: " + testTrain1.getSecondClassOccupancyRatio());
-
+        bookSeats(testTrain1, 1, 30);
+        bookSeats(testTrain1, 2, 20);
         //4)
         testTrain1.deleteAllReservations();
 
         //5)
-        testTrain1.reserveFirstClassSeats(60);
-        System.out.println("Percentuale totale dei posti occupati: " + testTrain1.getTotOccupancyRatio());
-        System.out.println("Percentuale dei posti occupati della prima classe: " + testTrain1.getFirstClassOccupancyRatio());
-
-        testTrain1.reserveSecondClassSeats(20);
-        System.out.println("Percentuale totale dei posti occupati: " + testTrain1.getTotOccupancyRatio());
-        System.out.println("Percentuale dei posti occupati della seconda classe: " + testTrain1.getSecondClassOccupancyRatio());
+        bookSeats(testTrain1, 1, 60);
+        bookSeats(testTrain1, 2, 20);
     }
+
+    static void bookSeats(Train train, int clazz, int quantity){
+            if (clazz == 1){
+                train.reserveFirstClassSeats(quantity);
+                System.out.println("Percentuale totale dei posti occupati: " + train.getTotOccupancyRatio());
+                System.out.println("Percentuale dei posti occupati della prima classe: " + train.getFirstClassOccupancyRatio());
+            }else if (clazz == 2){
+                train.reserveSecondClassSeats(quantity);
+                System.out.println("Percentuale totale dei posti occupati: " + train.getTotOccupancyRatio());
+                System.out.println("Percentuale dei posti occupati della seconda classe: " + train.getSecondClassOccupancyRatio());
+
+            }
+        }
 }
