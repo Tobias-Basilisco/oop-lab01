@@ -1,6 +1,6 @@
 class ComplexNumCalculator {
 
-    ComplexNum lastRes;
+    ComplexNum lastRes = new ComplexNum();
     int nOpDone;
 
     ComplexNum add(ComplexNum a, ComplexNum b) {
@@ -36,8 +36,8 @@ class ComplexNumCalculator {
 
     ComplexNum div(ComplexNum a, ComplexNum b) {
         //operazione
-        this.lastRes.re = a.re * b.re + a.im * b.im / (b.re * b.re + b.im * b.im);
-        this.lastRes.im = a.im * b.re - a.re * b.im / (b.re * b.re + b.im * b.im);
+        this.lastRes.re = (a.re * b.re + a.im * b.im) / (b.re * b.re + b.im * b.im);
+        this.lastRes.im = (a.im * b.re - a.re * b.im) / (b.re * b.re + b.im * b.im);
         //incremento nOp
         this.nOpDone ++;
         
